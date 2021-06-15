@@ -1,0 +1,80 @@
+/*
+ * BAMSCES.rc
+ * Mark Hampton
+ */
+
+#include <os2.h>
+#include "score.h"
+
+ICON 1 LOADONCALL score.ico
+
+
+ACCELTABLE 1
+   {
+   "x",       IDM_EXIT,    CHAR,       ALT
+   "X",       IDM_EXIT,    CHAR,       ALT
+   "n",       IDM_NEW,     CHAR,       ALT
+   "N",       IDM_NEW,     CHAR,       ALT
+   }
+
+
+MENU 1
+   {
+   SUBMENU "~Game",                 IDM_GAME_MENU
+      {                     
+      MENUITEM "~New\tAlt N",       IDM_NEW
+      MENUITEM SEPARATOR
+      MENUITEM "~Options\tAlt O",   IDM_OPTIONS
+      MENUITEM SEPARATOR
+      MENUITEM "E~xit\tAlt X",      IDM_EXIT
+      }
+   }
+
+
+DLGTEMPLATE IDM_NEW LOADONCALL MOVEABLE DISCARDABLE 
+BEGIN
+    DIALOG "New Game", IDM_NEW, 29, 92, 167, 71, FS_NOBYTEALIGN | FS_DLGBORDER | 
+                WS_VISIBLE | WS_CLIPSIBLINGS | WS_SAVEBITS, FCF_SYSMENU | 
+                FCF_TITLEBAR
+    BEGIN
+        CONTROL "~Left Player:", DID_LEFT + DID_STOFFSET, 3, 58, 65, 8, WC_STATIC, SS_TEXT | 
+                DT_LEFT | DT_TOP | DT_MNEMONIC | WS_GROUP | WS_VISIBLE
+        CONTROL "", DID_LEFT, 6, 45, 100, 8, WC_ENTRYFIELD, ES_LEFT | ES_AUTOSCROLL | 
+                ES_MARGIN | WS_TABSTOP | WS_VISIBLE
+        CONTROL "~Right Player:", DID_RIGHT + DID_STOFFSET, 3, 31, 65, 8, WC_STATIC, SS_TEXT | 
+                DT_LEFT | DT_TOP | DT_MNEMONIC | WS_GROUP | WS_VISIBLE
+        CONTROL "", DID_RIGHT, 7, 17, 100, 8, WC_ENTRYFIELD, ES_LEFT | ES_AUTOSCROLL | 
+                ES_MARGIN | WS_TABSTOP | WS_VISIBLE
+        CONTROL "~OK", DID_OK, 127, 43, 38, 13, WC_BUTTON, BS_PUSHBUTTON | BS_DEFAULT | 
+                WS_TABSTOP | WS_VISIBLE
+        CONTROL "~Cancel", DID_CANCEL, 127, 15, 38, 13, WC_BUTTON, BS_PUSHBUTTON | 
+                WS_TABSTOP | WS_VISIBLE
+    END
+END
+
+DLGTEMPLATE IDM_OPTIONS LOADONCALL MOVEABLE DISCARDABLE 
+BEGIN
+    DIALOG "Game Options", IDM_OPTIONS, 15, 62, 129, 111, FS_NOBYTEALIGN | FS_DLGBORDER | 
+                WS_VISIBLE | WS_CLIPSIBLINGS | WS_SAVEBITS, FCF_SYSMENU | 
+                FCF_TITLEBAR
+    BEGIN
+        CONTROL "Game Type", 100, 4, 64, 71, 41, WC_STATIC, SS_GROUPBOX | 
+                WS_GROUP | WS_VISIBLE
+        CONTROL "Cricket", DID_CRICKET, 8, 84, 61, 10, WC_BUTTON, BS_AUTORADIOBUTTON | 
+                WS_TABSTOP | WS_VISIBLE
+        CONTROL "301", DID_301, 8, 70, 61, 10, WC_BUTTON, BS_AUTORADIOBUTTON | 
+                WS_TABSTOP | WS_VISIBLE
+        CONTROL "301 Options", 256, 4, 5, 93, 55, WC_STATIC, SS_GROUPBOX | 
+                WS_GROUP | WS_VISIBLE
+        CONTROL "~Starting Score:", DID_START_SCORE + DID_STOFFSET, 11, 42, 72, 8, WC_STATIC, SS_TEXT | 
+                DT_LEFT | DT_TOP | DT_MNEMONIC | WS_GROUP | WS_VISIBLE
+        CONTROL "301", DID_START_SCORE, 13, 30, 70, 8, WC_ENTRYFIELD, ES_LEFT | ES_MARGIN | 
+                WS_TABSTOP | WS_VISIBLE
+        CONTROL "Start on a Double", DID_START_DOUBLE, 11, 16, 82, 10, WC_BUTTON, BS_AUTOCHECKBOX | 
+                WS_TABSTOP | WS_VISIBLE
+        CONTROL "~OK", DID_OK, 79, 91, 39, 13, WC_BUTTON, BS_PUSHBUTTON | BS_DEFAULT | 
+                WS_TABSTOP | WS_VISIBLE
+        CONTROL "~Cancel", DID_CANCEL, 80, 64, 39, 14, WC_BUTTON, BS_PUSHBUTTON | 
+                WS_TABSTOP | WS_VISIBLE
+    END
+END

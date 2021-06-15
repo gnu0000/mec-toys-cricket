@@ -1,0 +1,28 @@
+NAME              SCORE WINDOWAPI
+DESCRIPTION       'Score.exe - A Dart scoring program'
+STUB              'os2stub.exe'
+
+HEAPSIZE          4096
+STACKSIZE         20000
+
+EXETYPE           OS2                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

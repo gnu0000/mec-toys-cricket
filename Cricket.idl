@@ -1,0 +1,19 @@
+
+	// Cricket.idl : IDL source for Cricket.exe
+//
+// This file will be processed by the MIDL tool to
+// produce the type library (Cricket.tlb) and marshalling code.
+import "oaidl.idl";
+import "ocidl.idl";
+[
+	uuid(40E8F201-77C0-11D2-8A76-00105A21C878),
+	version(1.0),
+	helpstring("Cricket 1.0 Type Library")
+]
+library CricketLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+};
+
+	

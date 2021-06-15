@@ -1,0 +1,15 @@
+all: score.exe
+
+#  link score.obj,score.exe,nul,os2 llibcep /nod/noe/noi/co,score.def
+#   cl -c -W3 -Od -ALw -G2sc -Zip score.c
+
+score.res: score.rc makefile score.h score.ico
+   rc -r score.rc
+
+score.exe: score.obj score.res score.h makefile 
+   link score.obj,score.exe,nul,os2 llibcep /nod/noe/noi/PACKC/PACKD/E/F,score.def
+   rc score.res score.exe
+
+score.obj: score.c score.h makefile
+   cl -c -W3 -Oxaz -ALw -G2rs score.c
+
